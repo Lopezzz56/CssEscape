@@ -4,18 +4,29 @@ import './backend.css';
 
 const BackendOutputPage = () => {
   const [pincode, setPincode] = useState('');
-  const [results, setResults] = useState(null);
+  const [results, setResults] = useState([]);
   const [error, setError] = useState('');
 
   const fetchPostalDetails = async () => {
     setError('');
-    setResults(null);
+    setResults([]);
+
+    if (!pincode) {
+      setError('Please enter a valid PIN code.');
+      return;
+    }
 
     try {
-      const response = await axios.get('https://api.postalpincode.in/pincode/${pincode}');
-      setResults(response.data.postOffices);
+      const response = await axios.get(`http://localhost:5000/api/postal/${pincode}`);
+      const { status, postOffices, message } = response.data;
+
+      if (status === 'Success') {
+        setResults(postOffices);
+      } else {
+        setError(message || 'No records found.');
+      }
     } catch (err) {
-      setError(err.response?.data?.message || 'An unexpected error occurred.');
+      setError('An error occurred while fetching data. Please try again.');
     }
   };
 
@@ -37,9 +48,9 @@ const BackendOutputPage = () => {
 
       {error && <p className="error-message">{error}</p>}
 
-      {results && (
+      {results.length > 0 && (
         <div className="results-container">
-          <h2>Results:</h2>
+          <h2>Post Offices:</h2>
           <ul>
             {results.map((office, index) => (
               <li key={index} className="result-item">
