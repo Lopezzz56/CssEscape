@@ -1,6 +1,6 @@
-const express = require('express');
-const axios = require('axios');
-const cors = require('cors');
+import express from 'express';
+import axios from 'axios';
+import cors from 'cors';
 
 const app = express();
 const PORT = 5000;
@@ -8,8 +8,13 @@ const PORT = 5000;
 // Enable CORS for all requests
 app.use(cors());
 
+// Default route for root
+app.get('/', (req, res) => {
+  res.send('Server is running. Use /api/postal/:pincode to fetch postal details.');
+});
+
 // Route to fetch postal details by PIN code
-app.post('/api/postal/:pincode', async (req, res) => {
+app.get('/api/postal/:pincode', async (req, res) => {
   const { pincode } = req.params;
 
   try {
@@ -17,10 +22,15 @@ app.post('/api/postal/:pincode', async (req, res) => {
     const data = response.data;
 
     if (data[0].Status === "Success") {
+      const postOffices = data[0].PostOffice.slice(0, 2).map((office) => ({
+        Name: office.Name,
+        State: office.State,
+      }));
+
       res.json({
         message: "Data fetched successfully",
         status: "Success",
-       // postOffices: data[0].PostOffice.slice(0, 2), // Return only the first two results
+        postOffices: postOffices,
       });
     } else {
       res.status(404).json({
