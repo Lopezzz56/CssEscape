@@ -1,0 +1,345 @@
+/* **************************************************** start *************************************************** */
+:root {
+  --color-primary: #3498db;
+  --color-secondary: #2ecc71;
+  --color-accent: #e74c3c;
+  --color-background: #f4f6f7;
+  --color-text-dark: #2c3e50;
+  --color-text-light: #ecf0f1;
+  --gradient-primary: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  --gradient-secondary: linear-gradient(to right, #ff6a00, #ee0979);
+  --gradient-subtle: linear-gradient(to right, rgba(255,255,255,0.9), rgba(255,255,255,0.6));
+  --shadow-soft: 0 10px 25px rgba(0,0,0,0.1);
+  --shadow-medium: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+* {
+  box-sizing: border-box;
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.image-container2 {
+  display: flex;  
+  align-items: center;  
+  gap: 10px;  
+  margin: 15px 170px; 
+}
+.image-container2 img {
+  width: 500px;
+  height: auto;
+  border-radius: 8px;
+  border: 2px solid #ddd; 
+}
+
+.image-container2 p {
+  font-size: 1rem; 
+  color: #333; 
+  margin: 0; 
+}
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: var(--color-background);
+  line-height: 1.6;
+  color: var(--color-text-dark);
+}
+
+.design-starter {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 40px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: var(--shadow-medium);
+  position: relative;
+  overflow: hidden;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  animation: pageReveal 1s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+@keyframes pageReveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px) rotateX(-10deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+  }
+}
+
+.design-starter::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: var(--gradient-primary);
+  opacity: 0.1;
+  z-index: -1;
+  transform: rotate(-45deg);
+}
+
+.design-starter h1 {
+  color: var(--color-text-dark);
+  margin-bottom: 30px;
+  font-size: 2.7rem;
+  font-weight: 800;
+  background: var(--gradient-secondary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  display: inline-block;
+}
+
+.design-starter h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--gradient-secondary);
+}
+
+.challenge-instructions {
+  background: var(--gradient-subtle);
+  border-radius: 15px;
+  padding: 30px;
+  margin-bottom: 30px;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+.challenge-instructions::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255,255,255,0.5);
+  transform: skewX(-15deg);
+  z-index: 1;
+}
+
+.challenge-instructions h2 {
+  color: var(--color-text-dark);
+  margin-bottom: 20px;
+  font-weight: 700;
+  position: relative;
+  z-index: 2;
+}
+
+.challenge-instructions ul {
+  padding-left: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.challenge-instructions li {
+  margin-bottom: 15px;
+  line-height: 1.7;
+  position: relative;
+  padding-left: 20px;
+}
+
+.challenge-instructions li::before {
+  content: '•';
+  position: absolute;
+  left: -20px;
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+.design-preview {
+  margin-bottom: 35px;
+  position: relative;
+}
+
+.preview-image {
+  max-width: 100%;
+  border-radius: 15px;
+  box-shadow: var(--shadow-medium);
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.preview-image:hover {
+  transform: scale(1.02) rotate(1deg);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.design-motivation {
+  font-style: italic;
+  color: #6c757d;
+  margin-bottom: 25px;
+  background: var(--gradient-subtle);
+  padding: 15px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.design-motivation::before {
+  content: '"';
+  position: absolute;
+  font-size: 4rem;
+  color: rgba(0,0,0,0.1);
+  top: -10px;
+  left: 10px;
+}
+
+.navigate-button {
+  background: var(--gradient-primary);
+  color: var(--color-text-light);
+  border: none;
+  padding: 15px 35px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  letter-spacing: 0.5px;
+}
+
+.navigate-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: all 0.6s;
+  z-index: -1;
+}
+
+.navigate-button:hover::before {
+  left: 100%;
+}
+
+.navigate-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.25);
+}
+
+@media (max-width: 768px) {
+  .design-starter {
+    margin: 20px;
+    padding: 25px;
+  }
+
+  .design-starter h1 {
+    font-size: 2.2rem;
+  }
+
+  .challenge-instructions {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .design-starter {
+    max-width: 95%;
+    margin: 30px auto;
+    padding: 35px;
+  }
+
+  .design-starter h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .design-starter {
+    max-width: 98%;
+    padding: 30px;
+  }
+
+  .challenge-instructions {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 992px) {
+  .design-starter {
+    margin: 20px;
+    padding: 25px;
+  }
+
+  .design-starter h1 {
+    font-size: 2.3rem;
+  }
+
+  .challenge-instructions li {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .design-starter {
+    margin: 15px;
+    padding: 20px;
+  }
+
+  .design-starter h1 {
+    font-size: 2rem;
+  }
+
+  .challenge-instructions {
+    padding: 20px;
+  }
+
+  .challenge-instructions li {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .design-starter {
+    margin: 10px;
+    padding: 15px;
+  }
+
+  .design-starter h1 {
+    font-size: 1.8rem;
+  }
+
+  .challenge-instructions ol {
+    padding-left: 25px;
+  }
+
+  .navigate-button {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+}
+
+
+@media (min-width: 1600px) {
+  .design-starter {
+    max-width: 1200px;
+    padding: 50px;
+  }
+
+  .design-starter h1 {
+    font-size: 3rem;
+  }
+
+  .challenge-instructions {
+    padding: 40px;
+  }
+
+  .challenge-instructions li {
+    font-size: 1.1rem;
+  }
+}
+
+/* **************************************************** end *************************************************** */

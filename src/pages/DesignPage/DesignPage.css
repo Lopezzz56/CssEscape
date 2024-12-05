@@ -1,0 +1,39 @@
+/* write your css here */
+a{
+    text-decoration: none;
+    color: black;
+}
+body {
+    padding: 10px 20px !important;
+}
+.z-about-us-header {
+    background-color: #f6f6f6;
+    padding: 20px 20px 40px; 
+}
+.z-about-us-header h1 {
+    text-align: center;
+    padding-bottom: 10px ;
+}
+.z-divider {
+    text-align: center;
+    width: 150px;
+    margin: auto;
+}
+
+.z-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 40px;
+}
+.z-col h1, p {
+    padding-bottom: 10px;
+}
+
+.z-col img {
+    width: 80%;    
+    border-radius: 10px;
+}
+
+.z-btn {
+    background-color: 	#87CEEB;
+}

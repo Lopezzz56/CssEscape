@@ -1,0 +1,156 @@
+/* **************************************************** start *************************************************** */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --accent-color: #e74c3c;
+    --text-color-dark: #2c3e50;
+    --text-color-light: #ecf0f1;
+    --background-color: #f4f6f9;
+    --gradient-primary: linear-gradient(135deg, #3498db, #2ecc71);
+    --gradient-secondary: linear-gradient(135deg, #e74c3c, #f39c12);
+    --card-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: var(--text-color-dark);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+  
+  .instruction-container {
+    width: 100%;
+    max-width: 900px;
+    background-color: white;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 50px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+  }
+  
+  .instruction-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+  }
+  
+  .title {
+    font-size: 48px;
+    margin-bottom: 30px;
+    text-align: center;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
+  }
+  
+  .overview {
+    background-color: rgba(46, 204, 113, 0.1);
+    border-left: 5px solid var(--secondary-color);
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+  }
+  
+  .points-title, .steps-title, .bonus-title, .final-notes-title {
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+  }
+  
+  .points-title::after, 
+  .steps-title::after, 
+  .bonus-title::after, 
+  .final-notes-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: var(--gradient-primary);
+  }
+  
+  .points-list, .setup-list, .final-notes-list {
+    list-style-type: none;
+    margin-bottom: 30px;
+  }
+  
+  .points-list li, .setup-list li, .final-notes-list li {
+    background-color: rgba(52, 152, 219, 0.05);
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+  
+  .points-list li:hover, .setup-list li:hover, .final-notes-list li:hover {
+    transform: translateX(10px);
+    background-color: rgba(52, 152, 219, 0.1);
+  }
+  
+  .step-title {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+  }
+  
+  .code-block {
+    background-color: #f4f6f9;
+    border-left: 4px solid var(--primary-color);
+    padding: 15px;
+    margin: 15px 0;
+    font-family: 'Courier New', Courier, monospace;
+    overflow-x: auto;
+    border-radius: 5px;
+  }
+  
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  a:hover {
+    color: var(--secondary-color);
+  }
+  
+  @media screen and (max-width: 768px) {
+    .instruction-container {
+      padding: 30px 20px;
+    }
+  
+    .title {
+      font-size: 36px;
+    }
+  
+    .overview {
+      padding: 15px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .instruction-container {
+      padding: 20px 15px;
+    }
+  
+    .title {
+      font-size: 30px;
+    }
+  
+    .code-block {
+      font-size: 14px;
+      padding: 10px;
+    }
+  }
+  /* **************************************************** end *************************************************** */
